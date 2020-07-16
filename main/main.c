@@ -93,12 +93,6 @@ static esp_err_t res_handler(httpd_req_t* req) {
 	return ESP_OK;
 }
 
-static const httpd_uri_t res = {
-				.uri       = "/",
-				.method    = HTTP_GET,
-				.handler   = res_handler,
-};
-
 static httpd_handle_t start_webserver(void) {
 	httpd_handle_t server = NULL;
 	httpd_config_t config = HTTPD_DEFAULT_CONFIG();
