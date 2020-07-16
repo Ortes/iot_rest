@@ -1,0 +1,236 @@
+[
+  {
+    "id": "79c0e97e.efc498",
+    "type": "tab",
+    "label": "Flow 3",
+    "disabled": false,
+    "info": ""
+  },
+  {
+    "id": "52e09079.7361c",
+    "type": "http in",
+    "z": "79c0e97e.efc498",
+    "name": "",
+    "url": "/temp",
+    "method": "post",
+    "upload": false,
+    "swaggerDoc": "",
+    "x": 140,
+    "y": 160,
+    "wires": [
+      [
+        "60694d0a.bbf9d4",
+        "96b914f9.1bb5a8",
+        "9613228a.31928"
+      ]
+    ]
+  },
+  {
+    "id": "60694d0a.bbf9d4",
+    "type": "http response",
+    "z": "79c0e97e.efc498",
+    "name": "",
+    "statusCode": "",
+    "headers": {},
+    "x": 610,
+    "y": 180,
+    "wires": []
+  },
+  {
+    "id": "51a0a99f.2f0cf8",
+    "type": "ui_chart",
+    "z": "79c0e97e.efc498",
+    "name": "",
+    "group": "d7b8037b.6f176",
+    "order": 4,
+    "width": 0,
+    "height": 0,
+    "label": "temp",
+    "chartType": "line",
+    "legend": "false",
+    "xformat": "HH:mm:ss",
+    "interpolate": "linear",
+    "nodata": "",
+    "dot": false,
+    "ymin": "",
+    "ymax": "",
+    "removeOlder": 1,
+    "removeOlderPoints": "",
+    "removeOlderUnit": "3600",
+    "cutout": 0,
+    "useOneColor": false,
+    "useUTC": false,
+    "colors": [
+      "#659f1d",
+      "#aec7e8",
+      "#df6c07",
+      "#2ca02c",
+      "#98df8a",
+      "#d62728",
+      "#ff9896",
+      "#9467bd",
+      "#c5b0d5"
+    ],
+    "useOldStyle": false,
+    "outputs": 1,
+    "x": 790,
+    "y": 140,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "c66a94c1.9c1588",
+    "type": "http request",
+    "z": "79c0e97e.efc498",
+    "name": "",
+    "method": "GET",
+    "ret": "txt",
+    "paytoqs": "ignore",
+    "url": "82.254.34.135:8080/led/on",
+    "tls": "",
+    "persist": false,
+    "proxy": "",
+    "authType": "",
+    "x": 390,
+    "y": 280,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "bddb8bc7.8e8148",
+    "type": "ui_button",
+    "z": "79c0e97e.efc498",
+    "name": "",
+    "group": "d7b8037b.6f176",
+    "order": 5,
+    "width": 0,
+    "height": 0,
+    "passthru": false,
+    "label": "ON",
+    "tooltip": "",
+    "color": "",
+    "bgcolor": "",
+    "icon": "",
+    "payload": "",
+    "payloadType": "str",
+    "topic": "",
+    "x": 130,
+    "y": 280,
+    "wires": [
+      [
+        "c66a94c1.9c1588"
+      ]
+    ]
+  },
+  {
+    "id": "45da65dd.4845fc",
+    "type": "http request",
+    "z": "79c0e97e.efc498",
+    "name": "",
+    "method": "GET",
+    "ret": "txt",
+    "paytoqs": "ignore",
+    "url": "82.254.34.135:8080/led/off",
+    "tls": "",
+    "persist": false,
+    "proxy": "",
+    "authType": "",
+    "x": 390,
+    "y": 360,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "b342f9c2.6a03a8",
+    "type": "ui_button",
+    "z": "79c0e97e.efc498",
+    "name": "",
+    "group": "d7b8037b.6f176",
+    "order": 5,
+    "width": 0,
+    "height": 0,
+    "passthru": false,
+    "label": "OFF",
+    "tooltip": "",
+    "color": "",
+    "bgcolor": "",
+    "icon": "",
+    "payload": "",
+    "payloadType": "str",
+    "topic": "",
+    "x": 130,
+    "y": 360,
+    "wires": [
+      [
+        "45da65dd.4845fc"
+      ]
+    ]
+  },
+  {
+    "id": "96b914f9.1bb5a8",
+    "type": "change",
+    "z": "79c0e97e.efc498",
+    "name": "",
+    "rules": [
+      {
+        "t": "set",
+        "p": "payload",
+        "pt": "msg",
+        "to": "payload.temp",
+        "tot": "msg"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 580,
+    "y": 140,
+    "wires": [
+      [
+        "51a0a99f.2f0cf8"
+      ]
+    ]
+  },
+  {
+    "id": "9613228a.31928",
+    "type": "debug",
+    "z": "79c0e97e.efc498",
+    "name": "",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "payload",
+    "targetType": "msg",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 600,
+    "y": 80,
+    "wires": []
+  },
+  {
+    "id": "d7b8037b.6f176",
+    "type": "ui_group",
+    "z": "",
+    "name": "Default",
+    "tab": "d45d14b8.2b9428",
+    "order": 1,
+    "disp": true,
+    "width": "6",
+    "collapse": false
+  },
+  {
+    "id": "d45d14b8.2b9428",
+    "type": "ui_tab",
+    "z": "",
+    "name": "Home",
+    "icon": "dashboard",
+    "disabled": false,
+    "hidden": false
+  }
+]
