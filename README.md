@@ -16,6 +16,7 @@ REST routes ESP32 side are:
 
 REST routes server side are:
 - POST /esp/temp push temperature
+- POST /esp/hum push temperature
 
 ### Server
 
