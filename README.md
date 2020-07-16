@@ -1,4 +1,4 @@
-# IOT Project MQTT
+# IOT Project REST
 
 ## Install
 
